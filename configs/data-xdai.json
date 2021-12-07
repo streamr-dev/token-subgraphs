@@ -1,0 +1,7 @@
+{
+  "output": "data-xdai/data-xdai.",
+  "chain": "xdai",
+  "datasources": [
+    { "address": "0x256eb8a51f382650B2A1e946b8811953640ee47D", "startBlock": 17894608, "module": [ "erc20" ] }
+  ]
+}

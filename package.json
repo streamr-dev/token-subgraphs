@@ -1,0 +1,21 @@
+{
+  "name": "token-subgraphs",
+  "version": "1.0.0",
+  "description": "Subgraphs for indexing DATA tokens on different chains",
+  "main": "index.js",
+  "scripts": {
+    "build-mainnet": "npx graph-compiler --config configs/data-mainnet.json --include node_modules/@openzeppelin/subgraphs/src/datasources --export-schema --export-subgraph && cd data-mainnet && graph codegen data-mainnet.subgraph.yaml",
+    "build-polygon": "npx graph-compiler --config configs/data-polygon.json --include node_modules/@openzeppelin/subgraphs/src/datasources --export-schema --export-subgraph && cd data-polygon && graph codegen data-polygon.subgraph.yaml",
+    "build-xdai": "npx graph-compiler --config configs/data-xdai.json --include node_modules/@openzeppelin/subgraphs/src/datasources --export-schema --export-subgraph && cd data-xdai && graph codegen data-xdai.subgraph.yaml",
+    "build-bsc": "npx graph-compiler --config configs/data-bsc.json --include node_modules/@openzeppelin/subgraphs/src/datasources --export-schema --export-subgraph && cd data-bsc && graph codegen data-bsc.subgraph.yaml",
+    "deploy-mainnet": "npm run build-mainnet && graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ streamr-dev/data-token data-mainnet/data-mainnet.subgraph.yaml",
+    "deploy-polygon": "npm run build-polygon && graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ streamr-dev/data-on-polygon data-polygon/data-polygon.subgraph.yaml",
+    "deploy-xdai": "npm run build-xdai && graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ streamr-dev/data-on-xdai data-xdai/data-xdai.subgraph.yaml",
+    "deploy-bsc": "npm run build-bsc && graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ streamr-dev/data-on-bsc data-bsc/data-bsc.subgraph.yaml"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/subgraphs": "^0.1.6"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "output": "data-polygon/data-polygon.",
+  "chain": "matic",
+  "datasources": [
+    { "address": "0x3a9A81d576d83FF21f26f325066054540720fC34", "startBlock": 21396608, "module": [ "erc20", "accesscontrol" ] }
+  ]
+}
